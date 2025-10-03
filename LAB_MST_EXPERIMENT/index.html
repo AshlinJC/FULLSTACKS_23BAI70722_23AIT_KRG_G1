@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    p {
+      font-size: 18px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Counter: <span id="count">0</span></h2>
+  <button id="decrement">Decrement</button>
+  <button id="increment">Increment</button>
+  <p id="message"></p>
+
+  <script>
+    let count = 0;
+    const countEl = document.getElementById("count");
+    const messageEl = document.getElementById("message");
+
+    document.getElementById("increment").addEventListener("click", () => {
+      if (count < 10) {
+        count++;
+        messageEl.textContent = "";
+      }
+      if (count === 10) {
+        messageEl.textContent = "Maximum limit reached.";
+      }
+      countEl.textContent = count;
+    });
+
+    document.getElementById("decrement").addEventListener("click", () => {
+      if (count > 0) {
+        count--;
+        messageEl.textContent = "";
+      }
+      countEl.textContent = count;
+    });
+  </script>
+
+</body>
+</html>
