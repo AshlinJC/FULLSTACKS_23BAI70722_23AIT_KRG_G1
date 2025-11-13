@@ -1,0 +1,84 @@
+Description:
+
+This interface is a simple Product List page with a dropdown filter to display products by category.
+It uses HTML for structure, CSS for styling, and JavaScript for dynamic filtering.
+
+HTML STRUCTURE & ELEMENT DETAILS
+
+1. FIELD: Container (<div class="container">)
+Purpose: Holds the entire product filter interface.
+Contents:
+- Heading (<h2>Product List</h2>) — page title.
+- Label and dropdown (<label>, <select id="filter">) — for selecting categories.
+- Product list (<div class="product-list">) — contains all product items.
+
+Expected Behavior:
+- Centered on the page with padding and border.
+- All child elements arranged vertically.
+
+2. FIELD: Filter Dropdown (<select id="filter">)
+Purpose: Allows users to select a category to filter products.
+Contents:
+- Options: All, Clothing, Electronics, Books.
+
+Expected Behavior:
+- On selection, triggers JavaScript event to filter product display.
+
+3. FIELD: Product Items (<div class="product" data-category="...">)
+Purpose: Represents individual products belonging to a category.
+Contents:
+- Product name (e.g., T-Shirt, Headphones, Novel).
+
+Expected Behavior:
+- Displayed in the list if category matches the dropdown selection or if "All" is selected.
+- Hidden if category does not match.
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: body
+Purpose: Overall page layout.
+Key Styles:
+- Flexbox centering of container.
+- Top margin for spacing.
+- Font: Arial, sans-serif.
+
+2. ELEMENT: .container
+Purpose: Main content box.
+Key Styles:
+- Border, padding, and rounded corners.
+- Fixed width for consistent layout.
+
+3. ELEMENT: h2
+Purpose: Page title.
+Key Styles:
+- Margin adjustments to align with container.
+
+4. ELEMENT: select
+Purpose: Dropdown for category filter.
+Key Styles:
+- Margin and padding for spacing and usability.
+
+5. ELEMENT: .product-list
+Purpose: Holds all product items.
+Key Styles:
+- Flex column layout with gap between items.
+
+6. ELEMENT: .product
+Purpose: Individual product box.
+Key Styles:
+- Padding, border, and rounded corners.
+- Visibility controlled by JavaScript based on selected category.
+
+JAVASCRIPT FUNCTIONALITY
+
+1. VARIABLES:
+- filterDropdown — dropdown element.
+- products — list of all product elements.
+
+2. EVENT:
+- change event on filterDropdown.
+
+3. BEHAVIOR:
+- Loop through all products.
+- Check data-category of each product.
+- Set display: block if category matches or "All" is selected; otherwise display: none.

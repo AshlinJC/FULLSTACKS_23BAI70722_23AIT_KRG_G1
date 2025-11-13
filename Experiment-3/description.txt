@@ -1,0 +1,103 @@
+Description:
+This interface is a minimal Admin Dashboard layout with a built-in Dark Mode toggle.
+It is styled entirely with CSS variables for easy theme switching and uses CSS Grid to arrange the header,
+sidebar, main content area, and footer.
+
+HTML STRUCTURE & ELEMENT DETAILS
+
+1. FIELD: Header (<header>)
+Purpose: Displays the dashboard title and dark mode toggle.
+Contents:
+- Title (<h1>Admin Dashboard</h1>) — large, left-aligned heading.
+- Label (linked to hidden checkbox) — acts as a clickable Dark Mode button, positioned on the right.
+
+Expected Behavior:
+- Always fixed at the top of the dashboard grid.
+- Color changes with theme selection.
+
+2. FIELD: Navigation Sidebar (<nav>)
+Purpose: Provides quick links to key admin sections.
+Contents:
+- Home, Users, Settings — vertical list of anchor links.
+
+Expected Behavior:
+- Occupies the left column of the grid.
+- Background color changes based on theme.
+
+3. FIELD: Main Content (<main>)
+Purpose: Displays dashboard content.
+Contents:
+- Welcome Heading (<h3>Welcome, Admin!</h3>)
+- Description Paragraph — placeholder for charts, tables, and reports.
+
+Expected Behavior:
+- Uses the remaining grid space beside the sidebar.
+- Text color switches from black to white in dark mode.
+
+4. FIELD: Footer (<footer>)
+Purpose: Displays copyright.
+Expected Behavior:
+- Always positioned at the bottom of the grid.
+- Background matches header theme color.
+
+5. FIELD: Dark Mode Toggle (<input type="checkbox">)
+Purpose: Switches the dashboard between light and dark themes.
+Expected Behavior:
+- When checked, updates CSS variables to dark color values.
+- When unchecked, restores light theme.
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: :root
+Purpose: Defines theme colors using CSS variables.
+Light Theme Defaults:
+- Header/Footer: green
+- Navigation: light gray 
+- Main Background: white
+- Text: black
+
+2. ELEMENT: .dashboard
+Purpose: Main grid layout.
+Key Styles:
+- display: grid; grid-template-columns: 160px auto; — sidebar + content.
+- grid-template-rows: 80px auto 50px; — header, main, footer.
+- height: 100vh; — full viewport height.
+
+3. ELEMENT: header
+Purpose: Top section of dashboard.
+Key Styles:
+- Flexbox for horizontal alignment of title and toggle.
+- Background bound to --bg-header variable.
+
+4. ELEMENT: .toggle-btn
+Purpose: Clickable label for the hidden checkbox.
+Key Styles:
+- White background, black border.
+- Slight padding and cursor pointer for button feel.
+
+5. ELEMENT: nav
+Purpose: Sidebar for navigation links.
+Key Styles:
+- Background bound to --bg-nav variable.
+- Vertical link list with padding.
+
+6. ELEMENT: main
+Purpose: Main working area.
+Key Styles:
+- Background bound to --bg-main variable.
+- Text color bound to --text-color variable.
+
+7. ELEMENT: footer
+Purpose: Bottom copyright bar.
+Key Styles:
+- Full width (grid-column: 1 / span 2).
+- Background bound to --bg-footer.
+
+8. ELEMENT: Dark Mode Styles
+Selector: #Checkbox:checked ~ .dashboard
+Behavior: Overrides CSS variables for dark theme.
+- Header/Footer: dark gray/black.
+- Navigation: darker gray.
+- Main Background: black.
+- Text: white.
+

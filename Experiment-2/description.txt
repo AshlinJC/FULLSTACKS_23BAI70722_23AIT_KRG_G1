@@ -1,0 +1,76 @@
+
+This interface is designed as a minimal frontend layout for a banking simulation or digital wallet concept.
+It includes a live balance display ($0) and two core action buttons: Deposit and Withdraw.
+
+1. FIELD: Balance Display (<h1>$0</h1>)
+Purpose: Displays the current balance (static in this version).
+
+Expected Behavior:
+Initially shows $0.
+
+2. BUTTON: Deposit
+Label: “Deposit”
+Style: Green button
+
+3. BUTTON: Withdraw
+Label: “Withdraw”
+Style: Red button
+
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: body
+Purpose: Centers content both vertically and horizontally.
+
+Key Styles:
+display: flex; align-items: center; justify-content: center; height: 100vh;: Ensures vertical centering.
+background-color: white;: Clean, neutral background.
+
+2. ELEMENT: .outer_box
+Purpose: Acts as a main container for visual separation.
+Key Styles:
+padding: 40px; border-radius: 15px;: Spacious, rounded UI.
+box-shadow: 0 0 10px rgba(0,0,0,0.2);: Adds depth.
+
+3. ELEMENT: .inner_box
+Purpose: Contains balance and buttons with its own padding.
+Key Styles:
+min-width: 280px;: Ensures minimum usable width.
+box-shadow: Lighter shadow to distinguish from outer box.
+text-align: center;: Centers all content inside.
+
+4. ELEMENT: h1
+Purpose: Displays the current balance.
+Key Styles:
+font-size: 2em; color: black;: Large and readable balance.
+
+5. ELEMENT: .buttons
+Purpose: Groups and aligns the Deposit and Withdraw buttons.
+Key Styles:
+flex-direction: column; gap: 15px;: Vertically stacks buttons with spacing.
+
+6. ELEMENT: button
+Purpose: Styled call-to-action elements.
+Common Styles:
+padding: 12px 24px; border-radius: 5px; width: 100%;: Easy to click, full-width.
+transition: background 0.3s ease;: Smooth hover animations.
+
+7. RESPONSIVENESS: @media (max-width: 480px)
+Purpose: Makes layout mobile-friendly.
+
+Behavior:
+Changes .buttons to a row layout.
+Buttons shrink slightly in size for better fit.
+
+LEARNING OUTCOMES
+
+1.Understood how to build a clean, centered layout using Flexbox.
+
+2.Practiced styling buttons with hover states for clear UX cues.
+
+3.Learnt how to structure a UI with reusability in mind (outer_box, inner_box).
+
+4.Gained knowledge about responsive design with media queries.
+
+5.Prepared a visually functional mockup for financial app behavior (deposit/withdraw).
+

@@ -1,0 +1,67 @@
+STUDENT REGISTRATION FORM – TEST CASES & VALIDATIONS
+
+1. FIELD: Name
+Requirement:
+- Required → cannot be left empty.
+- Only uppercase/lowercase alphabets and spaces allowed.
+- Pattern used: [A-Za-z\s]+ → One or more letters/spaces only.
+
+Valid Inputs:
+- "John Smith"
+- "Alice Johnson"
+
+Invalid Inputs:
+- "John123" → Contains numbers.
+- "John_Smith" → Contains underscore (invalid).
+- "John@Smith" → Contains special character.
+
+2. FIELD: Email
+Requirement:
+- Required → cannot be empty.
+- Must follow HTML5 email format (example@domain.com).
+- Automatically validated by type="email".
+
+Valid Inputs:
+- "johnsmith@gmail.com"
+- "alice.johnson@university.co.in"
+
+Invalid Inputs:
+- "johnsmith" → Missing @ and domain.
+- "john@.com" → Missing domain name.
+- "john@domain,com" → Comma instead of dot.
+
+3. FIELD: Age
+Requirement:
+- Required → cannot be empty.
+- Must be numeric (type="number").
+- Minimum age: 5.
+- Maximum age: 100.
+
+Valid Inputs:
+- 5 → Minimum valid age.
+- 20, 60 → Typical valid ages.
+- 100 → Maximum valid age.
+
+Invalid Inputs:
+- "" → Empty input.
+- 4 → Below minimum age.
+- 101 → Above maximum age.
+- "twenty" → Non-numeric.
+
+4. FORM SUBMISSION:
+- All fields valid: Form submits successfully to /submit via POST method.
+- Any invalid field: Submission blocked by browser; HTML5 validation messages shown.
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: form (Main Form Container)
+Purpose: Styles the form background to make it stand out from the page background.
+- background-color: grey; → Applies a solid grey background color to the form.
+
+(Note: Your current CSS only styles the form background. Further enhancements like padding, margin, border-radius, and font styling could improve readability.)
+
+LEARNING OUTCOMES
+1. How to create a basic HTML Student Registration Form with text, email, and number fields.
+2. How to use HTML5 built-in validations with required, pattern, type, min, and max attributes.
+3. How to link external CSS (style.css) and style form elements.
+4. How browser validation automatically prevents submission when constraints are not met.

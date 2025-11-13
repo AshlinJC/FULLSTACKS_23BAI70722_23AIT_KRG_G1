@@ -1,0 +1,91 @@
+Description:
+
+This interface is a basic SVG Drawing Tool that allows users to draw freehand paths inside an SVG area.
+It is built using HTML, CSS, and JavaScript. The drawing is created by tracking mouse events and dynamically
+updating an SVG <path> element.
+
+HTML STRUCTURE & ELEMENT DETAILS
+
+1. FIELD: Heading (<h2>)
+Purpose: Displays the title of the page.
+Contents:
+- "SVG Drawing Tool" heading at the top of the page.
+
+Expected Behavior:
+- Always centered above the drawing area.
+
+2. FIELD: Container (<div class="container">)
+Purpose: Wraps the SVG drawing area with a border and padding.
+Contents:
+- One <svg> element for drawing.
+
+Expected Behavior:
+- Visually groups the drawing area, giving a framed look.
+
+3. FIELD: Drawing Area (<svg id="drawingArea">)
+Purpose: Main canvas for drawing paths.
+Contents:
+- Empty initially, later populated with <path> elements as user draws.
+
+Expected Behavior:
+- Size fixed to 900px width and 650px height.
+- Background is light gray with a visible border.
+- Cursor changes to crosshair.
+
+CSS STYLING BREAKDOWN
+
+1. ELEMENT: body
+Purpose: Overall page layout.
+Key Styles:
+- Center-aligned text.
+- Top margin for spacing.
+- Arial font.
+
+2. ELEMENT: .container
+Purpose: Frame around the SVG canvas.
+Key Styles:
+- Inline-block display.
+- Border with padding.
+
+3. ELEMENT: svg
+Purpose: Drawing canvas.
+Key Styles:
+- Fixed dimensions (900x650).
+- Light gray background.
+- Solid border.
+- Cursor set to crosshair.
+
+JAVASCRIPT FUNCTIONALITY
+
+1. VARIABLES:
+- svg — the drawing area element.
+- drawing — boolean flag to track if the mouse is pressed.
+- currentPath — stores the active <path> element being drawn.
+
+2. FUNCTION: getMousePosition(evt)
+Purpose: Calculates mouse position relative to SVG canvas.
+Returns:
+- x, y coordinates adjusted from bounding box.
+
+3. EVENT: mousedown on SVG
+Behavior:
+- Starts drawing by creating a new <path> element.
+- Initializes path with "M x y" (move to start point).
+- Sets stroke color blue, stroke width 2, no fill.
+- Appends the new path to the SVG.
+
+4. EVENT: mousemove on document
+Behavior:
+- If drawing is active, appends "L x y" (line to) commands to the current path.
+- Ensures drawing only occurs within the SVG boundaries.
+
+5. EVENT: mouseup on document
+Behavior:
+- Ends drawing by resetting flags and clearing currentPath.
+
+EXPECTED BEHAVIOR
+- User clicks and holds inside the SVG to start drawing.
+- Moves the mouse to draw continuous lines.
+- Releases mouse button to finish the path.
+- Multiple freehand paths can be drawn consecutively.
+

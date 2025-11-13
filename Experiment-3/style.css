@@ -1,0 +1,71 @@
+:root {
+    --bg-header: rgb(26, 191, 26);
+    --bg-footer: rgb(26, 191, 26);
+    --bg-nav: rgb(180, 188, 189);
+    --bg-main: white;
+    --text-color: black;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    display: none; 
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 160px auto;
+    grid-template-rows: 80px auto 50px;
+    height: 100vh;
+    color: var(--text-color);
+}
+
+header {
+    grid-column: 1 / span 2;
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border: 1px solid black;
+}
+
+.toggle-btn {
+    padding: 4px 8px;
+    border: 1.5px solid black;
+    border-radius: 1.5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+nav {
+    background-color: var(--bg-nav);
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+main {
+    background-color: var(--bg-main);
+    padding: 20px;
+    border: 1px solid black;
+}
+
+footer {
+    grid-column: 1 / span 2;
+    background-color: var(--bg-footer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#Checkbox:checked ~ .dashboard {
+    --bg-header: rgb(28, 28, 28);
+    --bg-footer: rgb(26, 26, 26);
+    --bg-nav: rgb(49, 49, 49);
+    --bg-main: black;
+    --text-color: white;
+}
