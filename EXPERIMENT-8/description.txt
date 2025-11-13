@@ -1,0 +1,51 @@
+
+1. Server Setup:
+   - Uses Express framework to create a web server.
+   - Server listens on port 3001.
+   - Uses express.json() middleware to parse incoming JSON request bodies.
+
+2. Global Logging Middleware:
+   - Logs each incoming request's HTTP method and URL.
+   - Second middleware logs with a timestamp in ISO format.
+   - Ensures all requests are visible for debugging or monitoring.
+
+3. Authentication Middleware (authMiddleware):
+   - Checks for 'authorization' header in requests.
+   - Only allows requests with the token 'mysecrettoken'.
+   - Returns 403 Forbidden if token is missing or invalid.
+   - Applied to the '/admin' route.
+
+4. Router-Level Middleware:
+   - Defines an Express router for '/admin'.
+   - Logs 'Admin router middleware executed' for every request to the router.
+   - Example route: '/admin/dashboard' responds with 'Admin dashboard'.
+   - Router is protected with authMiddleware.
+
+5. User Data Management (In-Memory Array):
+   - Uses an array `users` to store user objects.
+   - Provides CRUD operations:
+
+   a) Create User (POST /users):
+      - Accepts JSON body with user data.
+      - Adds user to `users` array.
+      - Returns 201 with the added user.
+
+   b) Get All Users (GET /users):
+      - Returns the entire `users` array as JSON.
+      - Status code 200.
+
+   c) Update User (PUT /users/:id):
+      - Accepts user ID as a URL parameter and updated data in the request body.
+      - Updates the user with matching ID in the `users` array.
+      - Returns 200 with the updated user.
+
+   d) Delete User (DELETE /users/:id):
+      - Accepts user ID as a URL parameter.
+      - Removes the user with matching ID from the `users` array.
+      - Returns 200 with a deletion confirmation message.
+
+6. Purpose and Use Case:
+   - Demonstrates Express middleware usage: global, authentication, and router-level.
+   - Provides basic CRUD operations on user data.
+   - Example of protecting certain routes with token-based authentication.
+   - Useful for learning routing, middleware, and RESTful API design in Express.

@@ -1,0 +1,231 @@
+/* === Font Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+/* === Root Variables === */
+:root {
+  --primary: #7A8B72;
+  --secondary: #D8D3C5;
+  --accent: #E4B7A0;
+  --background: #F7F5EF;
+  --text: #2E2E2E;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* === Global Reset === */
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* === Header === */
+header {
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  color: var(--white);
+  padding: 20px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* === Buttons === */
+button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.25s ease;
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.add-btn {
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+.add-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.logout-btn {
+  background-color: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.logout-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* === Container === */
+.container {
+  padding: 40px 5%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* === Board === */
+.board {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* === Column === */
+.column {
+  background: var(--secondary);
+  flex: 1;
+  min-width: 320px;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 18px var(--shadow);
+  border: 1px solid #e8e4dc;
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.column h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+/* === Task Card === */
+.task-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px var(--shadow);
+  border-left: 5px solid var(--accent);
+  transition: all 0.25s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.task-card .title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
+}
+
+.task-card .timer {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-top: 6px;
+  opacity: 0.75;
+}
+
+/* === Auth Box === */
+.auth-box {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 40px;
+  max-width: 420px;
+  margin: 100px auto;
+  box-shadow: 0 8px 20px var(--shadow);
+  text-align: center;
+  border: 1px solid var(--secondary);
+}
+
+.auth-box h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.auth-box input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 6px rgba(228, 183, 160, 0.3);
+}
+
+.auth-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.auth-actions button:first-child {
+  flex: 1;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.auth-actions button:last-child {
+  flex: 1;
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+.auth-actions button:last-child:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.column, .task-card {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .board {
+    flex-direction: column;
+  }
+}

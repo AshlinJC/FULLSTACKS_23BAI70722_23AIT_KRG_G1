@@ -1,0 +1,58 @@
+Description:
+
+1. Create React App
+   - Initialize a React project using Vite or Create React App.
+   - Verify it runs locally using:
+     npm run dev
+
+2. Create .dockerignore file
+   - Exclude unnecessary files:
+     node_modules
+     dist
+     .git
+     .env
+     Dockerfile
+     docker-compose.yml
+
+3. Create Dockerfile with Multi-Stage Build
+   - Stage 1: Use Node.js to build the React app.
+   - Stage 2: Use Nginx to serve the optimized static files.
+   Example:
+     FROM node:20 AS build
+     WORKDIR /app
+     COPY package*.json ./
+     RUN npm ci
+     COPY . .
+     RUN npm run build
+
+     FROM nginx:1.25-alpine
+     COPY --from=build /app/dist /usr/share/nginx/html
+     EXPOSE 80
+     CMD ["nginx", "-g", "daemon off;"]
+
+4. Build Docker Image
+   - Command:
+     docker build -t react-app-image-exp-8 .
+
+5. Run Docker Container
+   - Command:
+     docker run -d -p 3001:80 --name react-frontend react-app-image-exp-8
+
+6. Verify Output
+   - Open browser and visit:
+     http://localhost:3001
+
+7. Set Up GitHub Actions Workflow
+   - Create file: .github/workflows/main.yml
+   - Trigger workflow on push to main branch.
+
+8. Configure Workflow Steps
+   - Set up Node.js v20 on Ubuntu runner.
+   - Run:
+     npm ci
+     npm run build
+   - Build Docker image:
+     docker build -t react-practice-2 .
+
+9. Commit and Push Changes
+    - Push code to main branch to trigger GitHub Actions.
