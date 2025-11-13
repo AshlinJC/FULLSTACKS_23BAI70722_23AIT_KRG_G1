@@ -1,0 +1,24 @@
+Real-Time Chat Application using React and Socket.IO
+
+- Implements a real-time chat system where multiple users can communicate simultaneously.
+- Supports sending and receiving messages instantly without page refresh.
+
+Frontend (React):
+- Uses React functional components with useState and useEffect hooks.
+- Manages three main states:
+  1. username – stores the current user's name.
+  2. message – stores the current message input.
+  3. chatHistory – stores the list of all chat messages.
+- Connects to the backend Socket.IO server using io.
+- Listens for incoming messages via socket.on('chat message') and updates chat history dynamically.
+- Provides input fields for username and message, and a scrollable chat display area.
+- Supports sending messages by pressing Enter or clicking the Send button.
+- Resets the message input after sending.
+- Inline styling is used for layout and readability.
+
+Backend (Node.js + Express + Socket.IO):
+- Uses Express to create the server and allow CORS for all origins.
+- Creates an HTTP server and integrates Socket.IO for real-time communication.
+- Listens for client connections and logs when a user connects or disconnects.
+- Listens for 'chat message' events from clients and broadcasts them to all connected clients using io.emit().
+- Runs the server on port 5000.
